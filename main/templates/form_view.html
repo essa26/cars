@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body %}
+<div class="row">
+   <div class="col-md-2 col-md-offset-5">
+      <form action='/form_view/' method='POST'>
+         {% csrf_token %}
+         </br>
+         <h3 >Car and/or Make:</h3>
+         </br>
+         <input type="text" name="car" >
+         </br>
+         </br>
+         <input type="submit" value="Submit" >
+      </form>
+      </br>
+      </br>
+      </br>
+      </br>
+      {% for car in cars %}	
+      <a href="/car_detail/{{ car.pk }}/">{{ car.name }} </br></a>
+      {% endfor %}
+   </div>
+</div>
+{% endblock %}

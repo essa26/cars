@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block body %}
+		<div class"container">
+
+			<div class="row">
+			{% for origin in origins %}
+
+				<div class="col-xs-12 col-sm-6 col-md-3">
+
+					<h2 class="origin_title">{{ origin }}</h2>
+					{% for car in origin.car_set.all %}
+						
+					<a href="/car_detail/{{ car.pk }}">{{ car.name }}</a></br>
+					{% endfor %}
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+{% endblock %}
